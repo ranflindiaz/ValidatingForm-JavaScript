@@ -52,7 +52,7 @@ function validatingForm(e){
     {
         e.target.classList.remove('border', 'border-green-500');   
         e.target.classList.add('border', 'border-red-500');
-        showError('All fields are requared');
+        showError('All fields are required');
     }
 
     const emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
