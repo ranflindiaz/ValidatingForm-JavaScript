@@ -36,11 +36,7 @@ function iniciarApp() {
 function validatingForm(e) {
 	if (e.target.value.length > 0) {
 		//Deleting errors
-		const error1 = document.querySelector('p.error');
-		if (error1 !== null) {
-			error1.remove();
-		}
-
+		deletingErrors();
 		e.target.classList.remove('border', 'border-red-500');
 		e.target.classList.add('border', 'border-green-500');
 	} else {
@@ -54,10 +50,7 @@ function validatingForm(e) {
 
 	if (e.target.type === 'email') {
 		if (emailregex.test(e.target.value)) {
-			const emaileror = document.querySelector('p.error');
-			if (emaileror !== null) {
-				emaileror.remove();
-			}
+			deletingErrors();
 
 			e.target.classList.remove('border', 'border-red-500');
 			e.target.classList.add('border', 'border-green-500');
@@ -111,17 +104,20 @@ function sendingEmail(e) {
 	}, 3000);
 }
 
+function deletingErrors() {
+	const emaileror = document.querySelector('p.error');
+	if (emaileror !== null) {
+		emaileror.remove();
+	}
+}
+
 function resetForm() {
 	email.classList.remove('border', 'border-green-500');
 	subject.classList.remove('border', 'border-green-500');
 	message.classList.remove('border', 'border-green-500');
 	form.reset();
+	deletingErrors();
 	iniciarApp();
-
-	const emaileror = document.querySelector('p.error');
-	if (emaileror !== null) {
-		emaileror.remove();
-	}
 }
 
 function showError(mensaje) {
